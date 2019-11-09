@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\DateApp\\DateApp.API\\DateApp.API.csproj": {}
+    "C:\\WebApp\\DateApp.API\\DateApp.API.csproj": {}
   },
   "projects": {
-    "C:\\DateApp\\DateApp.API\\DateApp.API.csproj": {
+    "C:\\WebApp\\DateApp.API\\DateApp.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\DateApp\\DateApp.API\\DateApp.API.csproj",
+        "projectUniqueName": "C:\\WebApp\\DateApp.API\\DateApp.API.csproj",
         "projectName": "DateApp.API",
-        "projectPath": "C:\\DateApp\\DateApp.API\\DateApp.API.csproj",
+        "projectPath": "C:\\WebApp\\DateApp.API\\DateApp.API.csproj",
         "packagesPath": "C:\\Users\\Vladimir\\.nuget\\packages\\",
-        "outputPath": "C:\\DateApp\\DateApp.API\\obj\\",
+        "outputPath": "C:\\WebApp\\DateApp.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -43,6 +43,10 @@
       "frameworks": {
         "netcoreapp3.0": {
           "dependencies": {
+            "EntityFramework.DynamicLinq": {
+              "target": "Package",
+              "version": "[1.0.19, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[3.0.0, )"
@@ -58,6 +62,10 @@
             "Microsoft.EntityFrameworkCore.Sqlite.Core": {
               "target": "Package",
               "version": "[3.0.0, )"
+            },
+            "runtime.any.System.Text.Encoding.Extensions": {
+              "target": "Package",
+              "version": "[4.3.0, )"
             }
           },
           "imports": [

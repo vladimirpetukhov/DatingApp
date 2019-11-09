@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.0": {
+      "EntityFramework.DynamicLinq/1.0.19": {
+        "type": "package",
+        "compile": {
+          "lib/net46/EntityFramework.DynamicLinq.dll": {}
+        },
+        "runtime": {
+          "lib/net46/EntityFramework.DynamicLinq.dll": {}
+        }
+      },
       "Microsoft.CSharp/4.6.0": {
         "type": "package",
         "compile": {
@@ -262,6 +271,15 @@
           "lib/netcoreapp3.0/Microsoft.Extensions.Primitives.dll": {}
         }
       },
+      "runtime.any.System.Text.Encoding.Extensions/4.3.0": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard/_._": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/System.Text.Encoding.Extensions.dll": {}
+        }
+      },
       "SQLitePCLRaw.bundle_e_sqlite3/2.0.0": {
         "type": "package",
         "dependencies": {
@@ -418,6 +436,23 @@
     }
   },
   "libraries": {
+    "EntityFramework.DynamicLinq/1.0.19": {
+      "sha512": "dwGRW26f8cYA740TOH5yH31xG79QtbeZfFXOmSRWR32/jhbPjWNuXNGrwK/+gOeEIp5j7BJds2pdXrz7u9buaA==",
+      "type": "package",
+      "path": "entityframework.dynamiclinq/1.0.19",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "entityframework.dynamiclinq.1.0.19.nupkg.sha512",
+        "entityframework.dynamiclinq.nuspec",
+        "lib/net45/EntityFramework.DynamicLinq.dll",
+        "lib/net45/EntityFramework.DynamicLinq.pdb",
+        "lib/net45/EntityFramework.DynamicLinq.xml",
+        "lib/net46/EntityFramework.DynamicLinq.dll",
+        "lib/net46/EntityFramework.DynamicLinq.pdb",
+        "lib/net46/EntityFramework.DynamicLinq.xml"
+      ]
+    },
     "Microsoft.CSharp/4.6.0": {
       "sha512": "kxn3M2rnAGy5N5DgcIwcE8QTePWU/XiYcQVzn9HqTls2NKluVzVSmVWRjK7OUPWbljCXuZxHyhEz9kPRIQeXow==",
       "type": "package",
@@ -794,6 +829,32 @@
         "microsoft.extensions.primitives.nuspec"
       ]
     },
+    "runtime.any.System.Text.Encoding.Extensions/4.3.0": {
+      "sha512": "NLrxmLsfRrOuVqPWG+2lrQZnE53MLVeo+w9c54EV+TUo4c8rILpsDXfY8pPiOy9kHpUHHP07ugKmtsU3vVW5Jg==",
+      "type": "package",
+      "path": "runtime.any.system.text.encoding.extensions/4.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net45/_._",
+        "lib/netcore50/System.Text.Encoding.Extensions.dll",
+        "lib/netstandard1.3/System.Text.Encoding.Extensions.dll",
+        "lib/win8/_._",
+        "lib/wpa81/_._",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/netstandard/_._",
+        "runtime.any.system.text.encoding.extensions.4.3.0.nupkg.sha512",
+        "runtime.any.system.text.encoding.extensions.nuspec",
+        "runtimes/aot/lib/netcore50/_._"
+      ]
+    },
     "SQLitePCLRaw.bundle_e_sqlite3/2.0.0": {
       "sha512": "9OUrMD42UDotS7tA2SzKTDKazarYnjONlAar4Wq+L80Yg2MuO45+dK5xEx9BuM6eg699zkkPSK+FsinY+E6kYw==",
       "type": "package",
@@ -1082,10 +1143,12 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.0": [
+      "EntityFramework.DynamicLinq >= 1.0.19",
       "Microsoft.EntityFrameworkCore >= 3.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 3.0.0",
       "Microsoft.EntityFrameworkCore.Sqlite >= 3.0.0",
-      "Microsoft.EntityFrameworkCore.Sqlite.Core >= 3.0.0"
+      "Microsoft.EntityFrameworkCore.Sqlite.Core >= 3.0.0",
+      "runtime.any.System.Text.Encoding.Extensions >= 4.3.0"
     ]
   },
   "packageFolders": {
@@ -1096,11 +1159,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\DateApp\\DateApp.API\\DateApp.API.csproj",
+      "projectUniqueName": "C:\\WebApp\\DateApp.API\\DateApp.API.csproj",
       "projectName": "DateApp.API",
-      "projectPath": "c:\\DateApp\\DateApp.API\\DateApp.API.csproj",
+      "projectPath": "C:\\WebApp\\DateApp.API\\DateApp.API.csproj",
       "packagesPath": "C:\\Users\\Vladimir\\.nuget\\packages\\",
-      "outputPath": "c:\\DateApp\\DateApp.API\\obj\\",
+      "outputPath": "C:\\WebApp\\DateApp.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -1132,6 +1195,10 @@
     "frameworks": {
       "netcoreapp3.0": {
         "dependencies": {
+          "EntityFramework.DynamicLinq": {
+            "target": "Package",
+            "version": "[1.0.19, )"
+          },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
             "version": "[3.0.0, )"
@@ -1147,6 +1214,10 @@
           "Microsoft.EntityFrameworkCore.Sqlite.Core": {
             "target": "Package",
             "version": "[3.0.0, )"
+          },
+          "runtime.any.System.Text.Encoding.Extensions": {
+            "target": "Package",
+            "version": "[4.3.0, )"
           }
         },
         "imports": [
@@ -1170,5 +1241,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'EntityFramework.DynamicLinq 1.0.19' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.0'. This package may not be fully compatible with your project.",
+      "libraryId": "EntityFramework.DynamicLinq",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.0"
+      ]
+    }
+  ]
 }
