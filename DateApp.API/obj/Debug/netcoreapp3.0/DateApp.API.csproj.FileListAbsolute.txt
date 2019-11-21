@@ -85,3 +85,8 @@ C:\WebApp\DateApp.API\obj\Debug\netcoreapp3.0\DateApp.API.csproj.CopyComplete
 C:\WebApp\DateApp.API\obj\Debug\netcoreapp3.0\DateApp.API.dll
 C:\WebApp\DateApp.API\obj\Debug\netcoreapp3.0\DateApp.API.pdb
 C:\WebApp\DateApp.API\bin\Debug\netcoreapp3.0\EntityFramework.DynamicLinq.dll
+C:\WebApp\DateApp.API\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.Logging.dll
+C:\WebApp\DateApp.API\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.Tokens.dll
+C:\WebApp\DateApp.API\bin\Debug\netcoreapp3.0\Newtonsoft.Json.dll
+C:\WebApp\DateApp.API\bin\Debug\netcoreapp3.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\WebApp\DateApp.API\bin\Debug\netcoreapp3.0\System.IdentityModel.Tokens.Jwt.dll

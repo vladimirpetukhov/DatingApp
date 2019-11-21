@@ -23,21 +23,21 @@ namespace DateApp.API.Data
             var user = await this._db.Users.FirstOrDefaultAsync(u => u.Username == username);
             if (user == null) return null;
             if (!VerifyUserPassword(password, user.PasswordHash, user.PasswordSalt)) return null;
-
             return user;
         }
 
         private bool VerifyUserPassword(string password, byte[] passwordHash, byte[] passwordSalt)
         {
-            using (var hmac = new HMACSHA512())
+            using (var hmac = new HMACSHA512(passwordSalt))
             {
                 var computeHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
                 for (int b = 0; b < computeHash.Length; b++)
                 {
                     if (computeHash[b] != passwordHash[b]) return false;
-
                 }
+               
                 return true;
+                
             }
         }
 
@@ -53,6 +53,11 @@ namespace DateApp.API.Data
             await this._db.SaveChangesAsync();
 
             return user;
+        }
+
+        public async Task<bool> Logout(User user)
+        {
+            return true;
         }
 
         public async Task<bool> UserExist(string username)
@@ -71,13 +76,13 @@ namespace DateApp.API.Data
                 }
                 using (var hmac = new HMACSHA512())
                 {
-                    passwordHash = hmac.Key;
-                    passwordSalt = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+                    passwordSalt = hmac.Key;
+                    passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+                    
                 }
             }
             catch (System.Exception)
             {
-
                 throw;
             }
 

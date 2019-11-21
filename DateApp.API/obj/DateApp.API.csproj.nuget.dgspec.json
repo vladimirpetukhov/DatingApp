@@ -63,6 +63,14 @@
               "target": "Package",
               "version": "[3.0.0, )"
             },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[5.6.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[5.6.0, )"
+            },
             "runtime.any.System.Text.Encoding.Extensions": {
               "target": "Package",
               "version": "[4.3.0, )"
