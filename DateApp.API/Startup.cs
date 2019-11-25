@@ -8,6 +8,7 @@ namespace DateApp.API
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
+    using Microsoft.AspNetCore.Authentication.JwtBearer;
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -25,7 +26,7 @@ namespace DateApp.API
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddControllers();
             services.AddCors();
-            services.AddAuthentication()
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme);
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
         }

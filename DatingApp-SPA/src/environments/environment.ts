@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  get_values:'http://localhost:5000/weatherforecast'
+  base_url:'http://localhost:5000/'
 };
 
 /*
