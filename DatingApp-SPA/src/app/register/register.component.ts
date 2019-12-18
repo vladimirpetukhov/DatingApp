@@ -31,6 +31,7 @@ export class RegisterComponent implements OnInit {
   cansel() {
     this.canselRegister.emit(false);
   }
+  
   registerToggle() {
 
   }
