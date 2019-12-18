@@ -1,8 +1,9 @@
+using System;
 namespace DateApp.API {
-    
+
+    using System.Net;
     using Data;
     using Helpers;
-    using System.Net;
     using Microsoft.AspNetCore.Authentication.JwtBearer;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Diagnostics;
@@ -36,14 +37,21 @@ namespace DateApp.API {
         public void Configure (IApplicationBuilder app, IWebHostEnvironment env) {
             if (env.IsDevelopment ()) {
                 app.UseDeveloperExceptionPage ();
+                IServiceProvider serviceProvider = app.ApplicationServices.CreateScope ().ServiceProvider;
+                try {
+                    var context = serviceProvider.GetService<DataContext> ();                    
+                    Seeder.SeedUsers(context);
+                } catch (Exception ex) {
+                    throw new InvalidOperationException("'SEEEEEF'");
+                }
             } else {
                 app.UseExceptionHandler (builder => {
                     builder.Run (async context => {
                         context.Response.StatusCode = (int) HttpStatusCode.InternalServerError;
                         var error = context.Features.Get<IExceptionHandlerFeature> ();
-                        if(error!=null){
-                            context.Response.AddAppError(error.Error.Message);
-                            await context.Response.WriteAsync(error.Error.Message);
+                        if (error != null) {
+                            context.Response.AddAppError (error.Error.Message);
+                            await context.Response.WriteAsync (error.Error.Message);
                         }
                     });
                 });
