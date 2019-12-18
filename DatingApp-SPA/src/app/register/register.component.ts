@@ -23,6 +23,7 @@ export class RegisterComponent implements OnInit {
   register() {
     this.authService.register(this.model).subscribe(() => {
       this.alertify.success('Register Successful');
+      this.isRegistered=true;
     }, error => {
       this.alertify.error(error);
     })
@@ -31,7 +32,7 @@ export class RegisterComponent implements OnInit {
   cansel() {
     this.canselRegister.emit(false);
   }
-  
+
   registerToggle() {
 
   }

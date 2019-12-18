@@ -28,7 +28,9 @@ namespace DateApp.API.Controllers {
                 if (string.IsNullOrEmpty (dto.Username) || string.IsNullOrEmpty (dto.Password)) {
                     throw new ArgumentException ($"null arguments");
                 }
+
                 if (await this._repo.UserExist (dto.Username) == true) return BadRequest ("User Already exist!");
+
                 var userToCreate = new User {
                     Username = dto.Username
                 };
@@ -48,7 +50,7 @@ namespace DateApp.API.Controllers {
         [HttpPost ("login")]
         public async Task<IActionResult> Login (UserLoginDto dto) {
             var userFromRepo = await _repo.Login (dto.Username, dto.Password);
-            if (userFromRepo == null) return Unauthorized ();
+            if (userFromRepo == null) return Unauthorized ("Unauthorized!");
 
             var claims = new [] {
                 new Claim (ClaimTypes.NameIdentifier, userFromRepo.Id.ToString ()),
@@ -58,7 +60,6 @@ namespace DateApp.API.Controllers {
             var key = new SymmetricSecurityKey (Encoding
                 .UTF8
                 .GetBytes (_config.GetSection ("AppSettings:Token").Value));
-
 
             var creds = new SigningCredentials (key, SecurityAlgorithms.HmacSha512Signature);
 
