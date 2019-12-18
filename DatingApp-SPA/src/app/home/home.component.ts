@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
   }  
 
   canselRegisterMode(registerMode:boolean){
-    this.registerMode=registerMode;
+    this.registerMode=!registerMode;
   }
 
 }
