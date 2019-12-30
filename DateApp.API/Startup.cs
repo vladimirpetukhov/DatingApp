@@ -2,6 +2,7 @@ using System;
 namespace DateApp.API {
 
     using System.Net;
+    using AutoMapper;
     using Data;
     using Helpers;
     using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -25,10 +26,15 @@ namespace DateApp.API {
         public void ConfigureServices (IServiceCollection services) {
             services.AddDbContext<DataContext> (x =>
                 x.UseSqlite (Configuration.GetConnectionString ("DefaultConnection")));
-            services.AddScoped<IAuthRepository, AuthRepository> ();
-            services.AddControllers ().AddNewtonsoftJson();
+            services.AddControllers ().AddNewtonsoftJson (opt => {
+                opt.SerializerSettings.ReferenceLoopHandling =
+                    Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            });
             services.AddCors ();
             services.AddAuthentication (JwtBearerDefaults.AuthenticationScheme);
+            services.AddAutoMapper(typeof(DatingRepository).Assembly);
+            services.AddScoped<IAuthRepository, AuthRepository> ();
+            services.AddScoped<IDatingRepository, DatingRepository> ();
             services.AddMvc ().SetCompatibilityVersion (CompatibilityVersion.Version_3_0);
 
         }
@@ -39,10 +45,10 @@ namespace DateApp.API {
                 app.UseDeveloperExceptionPage ();
                 IServiceProvider serviceProvider = app.ApplicationServices.CreateScope ().ServiceProvider;
                 try {
-                    var context = serviceProvider.GetService<DataContext> ();                    
-                    Seeder.SeedUsers(context);
+                    var context = serviceProvider.GetService<DataContext> ();
+                    Seeder.SeedUsers (context);
                 } catch (Exception ex) {
-                    throw new InvalidOperationException("'SEEEEEF'");
+                    throw new InvalidOperationException ("'SEEEEEF'");
                 }
             } else {
                 app.UseExceptionHandler (builder => {
