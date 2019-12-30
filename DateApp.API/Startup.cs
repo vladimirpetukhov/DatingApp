@@ -26,7 +26,7 @@ namespace DateApp.API {
             services.AddDbContext<DataContext> (x =>
                 x.UseSqlite (Configuration.GetConnectionString ("DefaultConnection")));
             services.AddScoped<IAuthRepository, AuthRepository> ();
-            services.AddControllers ();
+            services.AddControllers ().AddNewtonsoftJson();
             services.AddCors ();
             services.AddAuthentication (JwtBearerDefaults.AuthenticationScheme);
             services.AddMvc ().SetCompatibilityVersion (CompatibilityVersion.Version_3_0);
