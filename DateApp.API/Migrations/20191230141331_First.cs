@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DateApp.API.Migrations
 {
-    public partial class ReInit : Migration
+    public partial class First : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -21,24 +21,14 @@ namespace DateApp.API.Migrations
                     KnownAs = table.Column<string>(nullable: true),
                     Created = table.Column<DateTime>(nullable: false),
                     LastActive = table.Column<DateTime>(nullable: false),
-                    Introduction = table.Column<string>(nullable: true)
+                    Introduction = table.Column<string>(nullable: true),
+                    LookingFor = table.Column<string>(nullable: true),
+                    City = table.Column<string>(nullable: true),
+                    Country = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Users", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Values",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Values", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -74,9 +64,6 @@ namespace DateApp.API.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Photos");
-
-            migrationBuilder.DropTable(
-                name: "Values");
 
             migrationBuilder.DropTable(
                 name: "Users");
